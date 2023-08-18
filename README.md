@@ -8,3 +8,5 @@ class groups of imaginary quadratic fields, together with a set of cryptographic
 primitives based on class groups.
 
 The documentation is available at https://crypto.lirmm.net/bicycl
+
+Follow the instructions here to build and install the library: https://crypto.lirmm.net/bicycl/install.html
