@@ -1,3 +1,10 @@
+# Contributions to the BICYCL Library
+Cyril Bouvier
+Guilhem Castagnos
+Laurent Imbert
+Fabien Laguillaumie
+Hamza Saleem
+
 # Contributions to the Miracl Core project
 
 ## Maintainer
