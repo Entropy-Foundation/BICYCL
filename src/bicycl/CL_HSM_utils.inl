@@ -42,6 +42,14 @@ CL_HSM_SecretKey<Cryptosystem>::CL_HSM_SecretKey (const Cryptosystem &C,
 {
 }
 
+template <class Cryptosystem>
+inline
+Mpz CL_HSM_SecretKey<Cryptosystem>::get_Mpz(){
+
+  Mpz mpz(*this);
+  return mpz;
+}
+
 /* */
 template <class Cryptosystem>
 inline
@@ -182,6 +190,16 @@ CL_HSM_ClearText<Cryptosystem>::CL_HSM_ClearText (const Cryptosystem &C,
 template <class Cryptosystem>
 inline
 CL_HSM_ClearText<Cryptosystem>::CL_HSM_ClearText(){}
+
+
+template <class Cryptosystem>
+inline
+Mpz CL_HSM_ClearText<Cryptosystem>::get_Mpz(){
+
+  Mpz mpz(*this);
+  return mpz;
+}
+
 
 /* */
 template <class Cryptosystem>

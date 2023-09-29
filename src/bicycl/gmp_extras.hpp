@@ -28,13 +28,6 @@
 #include <algorithm>
 #include <vector>
 
-#include "pair_BLS12381.h"
-
-using namespace core;
-using namespace BLS12381;
-using namespace BLS12381_FP;
-using namespace BLS12381_BIG;
-
 namespace BICYCL
 {
   namespace _gmp_impl
@@ -94,6 +87,8 @@ namespace BICYCL
       Mpz (unsigned long);
       Mpz (const std::string &);
       Mpz (const std::vector<unsigned char> &);
+      void BIG_bytes_to_Mpz (const std::vector<unsigned char> &data);
+      std::vector<unsigned char> Mpz_to_BIG_bytes();
 
       /* destructor */
       ~Mpz ();
@@ -130,8 +125,6 @@ namespace BICYCL
       operator mpz_srcptr() const;
       operator unsigned long int() const;
       operator long int() const;
-      void BIG_to_Mpz (BIG& x);
-      void Mpz_to_BIG (BIG& x);
       void mpz_to_vector(std::vector<unsigned char>& result) const;
 
       /* getters */

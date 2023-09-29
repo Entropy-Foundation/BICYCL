@@ -656,6 +656,49 @@ void CL_HSMqk::encrypt_all (const PublicKey* pk, const ClearText* m, const Mpz&r
 }
 
 
+std::vector<_Utils::CL_HSM_CipherText<CL_HSMqk>> CL_HSMqk::encrypt_all (const std::vector<PublicKey> pk, const std::vector<ClearText> m, const Mpz&r) const
+{
+
+  std::vector<CipherText> result(m.size());
+
+
+  // calculate c1 = h^r
+    QFI c1;
+    power_of_h(c1, r); 
+
+    // create a vector to store the thread objects
+    std::vector<std::thread> threads;
+
+    for(int i = 0; i < m.size(); i++){
+        // create a new thread for each loop iteration
+        threads.push_back(std::thread([&, i]() {
+            // calculate fm = [q^2, q, ...]^m
+            QFI fm = power_of_f(m[i]);
+
+            // calculate pk^r
+            QFI c2;
+            pk[i].exponentiation(*this, c2, r);
+
+            // calculate c2 = f^m*pk^r
+            Cl_Delta().nucomp(c2, c2, fm);
+
+            // store the results in the array
+            result[i].c1_ = c1;
+            result[i].c2_ = c2;
+        }));
+    }
+
+    // join all the threads, ensuring they have all finished
+    // executing before moving on
+    for(auto& th : threads){
+        th.join();
+    }
+
+    return result;
+
+}
+
+
 /*
  * Same as above but without the randomness
  */

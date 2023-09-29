@@ -12,7 +12,6 @@ set (BICYCL_INSTALLABLE_HEADERS_AND_INL
                       )
 add_library (bicycl INTERFACE)
 
-include_directories(/usr/local/include/miracl/)
 include_directories(/usr/local/include/)
 include_directories(/usr/local/lib/)
 link_directories(/usr/local/lib/)
@@ -22,7 +21,7 @@ target_sources (bicycl INTERFACE ${BICYCL_MAIN_HEADER}
 target_include_directories (bicycl INTERFACE
                               $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
                               $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
-target_link_libraries (bicycl INTERFACE gmp::gmp OpenSSL::Crypto core)
+target_link_libraries (bicycl INTERFACE gmp::gmp OpenSSL::Crypto)
 if (THREADS_FOUND AND CMAKE_USE_PTHREADS_INIT)
   target_link_libraries (bicycl INTERFACE Threads::Threads)
   target_compile_definitions (bicycl INTERFACE BICYCL_WITH_PTHREADS)

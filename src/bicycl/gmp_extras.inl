@@ -301,29 +301,29 @@ Mpz::Mpz (const std::vector<unsigned char> &data) : Mpz()
 }
 
 
-inline void Mpz::BIG_to_Mpz (BIG& x){
+inline void Mpz::BIG_bytes_to_Mpz (const std::vector<unsigned char> &data){
 
-  char*  x_bytes = new char[48];
-  BIG_toBytes(x_bytes, x);
-
-  const unsigned char *data_unsigned_char = reinterpret_cast<const unsigned char*>(x_bytes);
-  mpz_import (mpz_, 48, 1, 1, -1, 0, data_unsigned_char);
-
-  delete[] x_bytes;
+  mpz_import (mpz_, data.size(), 1, 1, -1, 0, data.data());
 }
 
-
-inline void Mpz::Mpz_to_BIG (BIG& x){
+inline std::vector<unsigned char> Mpz::Mpz_to_BIG_bytes(){
 
   size_t length = mpz_sizeinbase(mpz_, 256)+ 1;
   unsigned char* arr = new unsigned char[length];
   mpz_export(arr, &length, 1, 1, -1, 0, mpz_);
-  char *data_char = reinterpret_cast<char*>(arr);
-  BIG_fromBytesLen(x, data_char, length);
+
+  std::vector<unsigned char> res_vec;
+
+  for(size_t i=0; i<length; i++){
+    res_vec.push_back(arr[i]);
+  }
 
   delete[] arr;
+  return res_vec;
 
 }
+
+
 
 inline void Mpz::mpz_to_vector(std::vector<unsigned char>& result) const{
 

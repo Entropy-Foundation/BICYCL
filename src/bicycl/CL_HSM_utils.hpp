@@ -39,6 +39,7 @@ namespace BICYCL
         /* constructors */
         CL_HSM_SecretKey (const Cryptosystem &, const Mpz &);
         CL_HSM_SecretKey (const Cryptosystem &, RandGen &);
+        Mpz get_Mpz ();
     };
 
     /**
@@ -98,6 +99,7 @@ namespace BICYCL
                           const CL_HSM_ClearText<Cryptosystem> &,
                           const Mpz &);
         CL_HSM_ClearText ();
+        Mpz get_Mpz ();
     };
 
     /**

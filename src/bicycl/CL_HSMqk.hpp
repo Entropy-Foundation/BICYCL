@@ -28,6 +28,7 @@
 #include "bicycl/CL_HSM_utils.hpp"
 #include "bicycl/seclevel.hpp"
 #include <thread>
+#include <vector>
 
 namespace BICYCL
 {
@@ -238,6 +239,9 @@ namespace BICYCL
 
       void encrypt_all (const PublicKey* pk, const ClearText* m,
                           const Mpz&r, CipherText* result, int n) const;
+
+      std::vector<CipherText> encrypt_all (const std::vector<PublicKey> pk, const std::vector<ClearText> m,
+                          const Mpz&r) const;
 
       /** Decrypt @p c using secret key @p sk*/
       ClearText decrypt (const SecretKey &sk, const CipherText &c) const;

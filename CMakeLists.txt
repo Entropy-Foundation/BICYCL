@@ -101,6 +101,5 @@ endif()
 find_package (gmp REQUIRED)
 find_package (OpenSSL REQUIRED)
 
-include_directories(/usr/local/include/miracl/)
 include_directories(/usr/local/lib/)
 link_directories(/usr/local/lib/)
