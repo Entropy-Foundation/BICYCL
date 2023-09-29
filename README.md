@@ -8,7 +8,4 @@ primitives based on class groups. We modify the implementation to be used for ou
 How to build the library:
 
 Step 1:
-Build the Miracl core library at (https://github.com/miracl/core/tree/master/cpp). Move all files in the cpp directory to a new directory "miracl" and run ``python3 config32.py''. Select BLS 12-381 curve. Build the curve and copy the miracl folder to /usr/local/include, rename core.a to libcore.a and copy libcore.a file to /usr/local/lib. 
-
-Step 2:
 Follow the instructions here (https://crypto.lirmm.net/bicycl/install.html) to build and install this library.
