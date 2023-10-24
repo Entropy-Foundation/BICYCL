@@ -134,7 +134,6 @@ namespace BICYCL
         const QFI & c1 () const;
         const QFI & c2 () const;
 
-        std::string Cipher_to_string();
     };
 
     #include "CL_HSM_utils.inl"

@@ -315,11 +315,5 @@ const QFI & CL_HSM_CipherText<Cryptosystem>::c2 () const
   return c2_;
 }
 
-template <class Cryptosystem>
-inline std::string CL_HSM_CipherText<Cryptosystem>::Cipher_to_string(){
-
-  return this->c1_.QFI_to_string() + this->c2_.QFI_to_string();
-}
-
 
 #endif /* CL_HSM_UTILS_INL__ */
