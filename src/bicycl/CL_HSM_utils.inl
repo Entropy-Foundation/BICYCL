@@ -296,6 +296,14 @@ CL_HSM_CipherText<Cryptosystem>::CL_HSM_CipherText (const Cryptosystem &C,
 
 template <class Cryptosystem>
 inline
+CL_HSM_CipherText<Cryptosystem>::CL_HSM_CipherText (const QFI & c1,
+                           const QFI & c2){
+  c1_ = c1;
+  c2_ = c2;
+}
+
+template <class Cryptosystem>
+inline
 CL_HSM_CipherText<Cryptosystem>::CL_HSM_CipherText ()
 {}
 
@@ -314,6 +322,5 @@ const QFI & CL_HSM_CipherText<Cryptosystem>::c2 () const
 {
   return c2_;
 }
-
 
 #endif /* CL_HSM_UTILS_INL__ */

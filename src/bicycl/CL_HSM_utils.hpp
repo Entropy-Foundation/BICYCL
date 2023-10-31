@@ -128,6 +128,8 @@ namespace BICYCL
                            const CL_HSM_CipherText &,
                            const Mpz &,
                            const Mpz &);
+        CL_HSM_CipherText (const QFI &,
+                           const QFI &);
         CL_HSM_CipherText ();
 
         /* getters */
